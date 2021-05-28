@@ -26,13 +26,18 @@
         </form> 
       </div>
     </div>
-    <div class="col-md-6 h-100">
-      <div class="card card-body" *ngIf="currentWeather">
-        <p>The weather in {{currentWeather.name}} is:</p>
-        <p>Temperature: {{currentWeather.main.temp}}{{currentDegreeUnit}}</p>
-        <p>Humidity: {{currentWeather.main.humidity}}%</p>
-        <p>Pressure: {{currentWeather.main.pressure}} bar</p>
-        <p class="capitalize">Description: {{currentWeather.weather[0].description}}</p>
+    <div class="col-md-6" id="weatherCard">
+      <div class="card card-body align-items-center h-100" *ngIf="!currentWeather">
+        <div id="loadingRound"></div>
+      </div>
+      <div class="card card-body h-100" *ngIf="currentWeather">
+        <h4 class="card-title">The weather in {{currentWeather.name}} is:</h4>
+        <div id="weatherInfo">
+          <p>Temperature: {{currentWeather.main.temp}}{{currentDegreeUnit}}</p>
+          <p>Humidity: {{currentWeather.main.humidity}}%</p>
+          <p>Pressure: {{currentWeather.main.pressure}} bar</p>
+          <p class="capitalize">Description: {{currentWeather.weather[0].description}}</p>
+        </div>
       </div>
     </div>
   </div>

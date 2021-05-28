@@ -30,6 +30,7 @@ export class AppComponent implements OnInit{
     )}
 
   submitLocation(cityName:HTMLInputElement, countryCode:HTMLInputElement, degreeUnit:HTMLSelectElement){
+    this.currentWeather = undefined;
     this.weather.setUnit(degreeUnit.value)
     this.currentDegreeUnit = this.weather.getUnit()
     this.getWeather(cityName.value,countryCode.value)
